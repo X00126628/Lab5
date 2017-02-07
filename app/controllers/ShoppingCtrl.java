@@ -1,6 +1,7 @@
 package controllers;
 
 import controllers.security.CheckIfCustomer;
+import controllers.security.Secured;
 import models.products.Product;
 import models.shopping.Basket;
 import models.shopping.OrderItem;
@@ -10,13 +11,15 @@ import models.users.User;
 import play.db.ebean.Transactional;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
+import play.mvc.With;
 import views.html.*;
 
 // Import models
 // Import security controllers
 
-//@Security.Authenticated(Secured.class)
-//@With(CheckIfCustomer.class)
+@Security.Authenticated(Secured.class)
+@With(CheckIfCustomer.class)
 
 public class ShoppingCtrl extends Controller {
 
